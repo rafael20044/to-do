@@ -1,4 +1,6 @@
 ---
+import "../css/layout.css";
+
 interface Props {
 	title: string;
 }
@@ -17,6 +19,14 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="contenedor">
+			<header class="contenedor-header">header</header>
+			<div class="contenedor-bar">sidebar</div>
+			<main class="contenedor-main">
+				<slot/>
+				main
+			</main>
+		</div>
 	</body>
 </html>
+

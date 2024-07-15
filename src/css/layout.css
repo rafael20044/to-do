@@ -1,0 +1,45 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+.contenedor{
+    display: grid;
+    grid-template:
+        "header"
+        "bar"
+        "main"
+    ;
+
+    .contenedor-header{
+        grid-area: header;
+        background-color: rgb(39, 35, 35);
+    }
+
+    .contenedor-bar{
+        grid-area: bar;
+        background-color: rgb(48, 47, 47);
+    }
+
+    .contenedor-main{
+        grid-area: main;
+        background-color: rgb(32, 32, 32);
+    }
+
+    @media (min-width: 768px) { /* tablet*/
+        grid-template:
+            "header header" 70px
+            "bar main" 94vh/
+            300px 
+        ;
+    }
+
+    @media (min-width: 992px) { /* portatiles */
+        grid-template:
+        "header header" 70px
+        "bar main" 89.5vh/
+        350px 
+    ;
+    }
+}
