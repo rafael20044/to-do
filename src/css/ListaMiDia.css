@@ -1,0 +1,22 @@
+.contenedorLista-input{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.contenedorLista-input input{
+    padding: 20px;
+    border-radius: 5px;
+    border-color: rgb(185, 173, 173);
+    background-color: transparent;
+    font-size: 15px;
+    color: white;
+}
+
+.contenedorLista-input-div button{
+    margin-left: 900px;
+    padding: 10px;
+    background-color: transparent;
+    color: white;
+    border-color: rgb(185, 173, 173);
+}

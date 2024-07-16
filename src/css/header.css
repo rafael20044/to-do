@@ -3,6 +3,7 @@
     padding-top: 13px;
     align-items: center;
     align-content: center;
+    padding-left: 20px;
 }
 
 .contenedor-titulo{
@@ -12,7 +13,7 @@
 
 .contenedor-input{
     padding: 10px 20px 10px 20px;
-    margin-left: 500px;
+    margin-left: 460px;
     background-color: rgb(56, 50, 50);
     color: white;
 }
