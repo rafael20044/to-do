@@ -13,13 +13,21 @@ interface DatosApi{
 function ListaMiDia() {
     const[datos, setDatos] = useState<DatosApi[]>([]);
 
+    const cambiarEstado = (index:number)=>{
+        datos[index].terminada = 1;
+        axios.put(`http://localhost:8080/api/tarea//updateEstado/${datos[index].id}`, datos[index])
+        .then(respuesta =>{
+            alert("Tarea actualizada"+respuesta)
+        })
+    };
+
     useEffect(()=>{
         axios.get("http://localhost:8080/api/tarea/buscar/todos")
         .then(respuesta =>{
             setDatos(respuesta.data)
         })
         .catch(error =>{
-
+            console.log(error)
         })
     },);
 
@@ -31,14 +39,13 @@ function ListaMiDia() {
                     <button>Agregar</button>
                 </div>
             </div>
-            <ul>
-                <li>
+            <ul className="contenedorLista-lista">
+                <li className="contenedorLista-lista-li">
                     {
                         datos.map((dato, index)=>(
                             <div key={index}>
-                                <p>fecha:{dato.fecha+""}</p>
-                                <p>{dato.tarea}</p>
-                                <button>Completar</button>
+                                <p>Fecha:{dato.fecha+""}, Tarea:{dato.tarea}, Estado:{dato.terminada == 0 ? "Incompleta":"Terminada"}</p>
+                                <button onClick={()=>cambiarEstado(index)}>Completar</button>
                             </div>
                         ))
                     }
