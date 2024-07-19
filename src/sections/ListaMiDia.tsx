@@ -14,14 +14,14 @@ function ListaMiDia() {
     const[datos, setDatos] = useState<DatosApi[]>([]);
 
     const cambiarEstado = (index:number)=>{
-        datos[index].terminada = 1;
-        axios.put(`http://localhost:8080/api/tarea//updateEstado/${datos[index].id}`, datos[index])
-        .then(respuesta =>{
-            alert("Tarea actualizada"+respuesta)
-        })
-    };
+        if (datos[index].terminada == 0) {
+            datos[index].terminada = 1;
+            axios.put(`http://localhost:8080/api/tarea/updateEstado/${datos[index].id}`, datos[index])
+            window.location.reload();
+        }
+    }
 
-    useEffect(()=>{
+    const buscarDatos = ()=>{
         axios.get("http://localhost:8080/api/tarea/buscar/todos")
         .then(respuesta =>{
             setDatos(respuesta.data)
@@ -29,7 +29,9 @@ function ListaMiDia() {
         .catch(error =>{
             console.log(error)
         })
-    },);
+    }
+
+    useEffect(buscarDatos,[]);
 
     return(
         <div className="contenedorLista">
