@@ -1,3 +1,5 @@
+
+
 .contenedorLista-input{
     display: flex;
     flex-direction: column;
@@ -27,6 +29,13 @@
     font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     margin-left: 20px;
+    /*Agregar scroll*/
+    width: 900px;
+    height: 350px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border: 1px solid #ccc;
+    padding-left: 10px;
 }
 
 .contenedorLista-lista-li button{

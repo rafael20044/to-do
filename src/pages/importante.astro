@@ -1,0 +1,14 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { format } from "date-fns";
+import "../css/index.css";
+const fecha = new Date();
+const fechaFormat = format(fecha, "dd-MM-yyyy");
+---
+
+<Layout title="Importante">
+    <div class="contenedorIndex">
+        <h1 class="contenedorIndex-dia">Mi día</h1>
+        <span class="contenedorIndex-fecha">{fechaFormat}</span>        
+    </div>
+</Layout>
